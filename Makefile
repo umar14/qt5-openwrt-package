@@ -9,13 +9,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5
-PKG_VERSION:=5.8
-PKG_RELEASE:=0
-PKG_MD5SUM:=a9f2494f75f966e2f22358ec367d8f41
+PKG_VERSION:=5.11
+PKG_RELEASE:=3
+PKG_MD5SUM:=02b353bfe7a40a8dc4274e1d17226d2b
 
-PKG_SOURCE:=qt-everywhere-opensource-src-$(PKG_VERSION).$(PKG_RELEASE).tar.gz
+PKG_SOURCE:=qt-everywhere-src-$(PKG_VERSION).$(PKG_RELEASE).tar.xz
 PKG_SOURCE_URL:=http://download.qt-project.org/archive/qt/$(PKG_VERSION)/$(PKG_VERSION).$(PKG_RELEASE)/single
-PKG_BUILD_DIR=$(BUILD_DIR)/qt-everywhere-opensource-src-$(PKG_VERSION).$(PKG_RELEASE)
+PKG_BUILD_DIR=$(BUILD_DIR)/qt-everywhere-src-$(PKG_VERSION).$(PKG_RELEASE)
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 PKG_BUILD_DEPENDS:=+libstdcpp
@@ -119,7 +119,6 @@ define Build/Configure
 			-no-iconv \
 			-no-pch \
 			-no-rpath \
-			-no-qml-debug \
 			-no-strip \
 			-no-cups \
 			-no-dbus \
@@ -128,6 +127,7 @@ define Build/Configure
 			-no-opengl \
 			-no-directfb \
 			-no-xcb \
+			-no-feature-getentropy \
 			-qt-zlib \
 			-qt-freetype \
 			-make libs \
@@ -171,6 +171,7 @@ define Package/qt5-core/install
 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.so* $(1)/usr/lib/
 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.prl $(1)/usr/lib/
 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.la $(1)/usr/lib/
+	$(CP) $(TOOLCHAIN_DIR)/lib/libatomic.so* $(1)/usr/lib/
 endef
 
 define Package/qt5-concurrent/install
