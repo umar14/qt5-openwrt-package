@@ -17,6 +17,10 @@ OpenWRT compiler is required.
 5. Compile by make packages/qt5-openwrt-package/compile V=s  
 6. Go to sleep and check it in the morning  
 
+## Tested Platform
+
+TBA
+
 ## Acknowledgments
 
 * Forked from https://github.com/pawelkn/qt5-openwrt-package  
