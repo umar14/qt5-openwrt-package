@@ -2,6 +2,10 @@
 
 Cross compile the Qt5 Core for OpenWRT.
 
+## Configure Qt Modules and Features
+
+TBA
+
 ## How to Compile
 
 OpenWRT compiler is required.
