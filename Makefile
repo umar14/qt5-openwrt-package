@@ -119,7 +119,6 @@ define Build/Configure
 			-release \
 			-verbose \
 			-no-accessibility \
-			-no-sse \
 			-no-sse2 \
 			-no-iconv \
 			-no-pch \
@@ -133,38 +132,26 @@ define Build/Configure
 			-no-directfb \
 			-no-xcb \
 			-no-feature-getentropy \
-			-no-webkit \
-			-no-qt3support \
-			-no-script \
-			-no-scripttools \
-			-no-nis \
 			-no-xkb \
-			-no-xshape \
-			-no-xvideo \
-			-no-xsync \
-			-no-xinerama \
-			-no-xcursor \
-			-no-xfixes \
-			-no-xrandr \
 			-no-eglfs \
 			-no-icu \
 			-no-gif \
 			-no-gui \
 			-no-widgets \
+			-no-libpng \
+			-no-libjpeg \
+			-no-separate-debug-info \
 			-no-sql-sqlite2 \
 			-no-sql-sqlite \
 			-no-sql-psql \
 			-no-sql-odbc \
 			-no-pkg-config \
-			-qt-zlib \
-			-qt-freetype \
+			-system-zlib \
+			-no-freetype \
 			-make libs \
 			-nomake examples \
 			-nomake tests \
-			-nomake demos \
 			-nomake tools \
-			-nomake docs \
-			-nomake quick \
 			-skip qtdeclarative \
 			-skip qtmultimedia \
 			-skip activeqt \
