@@ -14,7 +14,7 @@ OpenWRT compiler is required.
 2. Extract the SDK  
 3. Clone this repo  
 4. Put this repo into SDK/packages  
-5. Compile by make packages/qt5-openwrt-package/compile V=s  
+5. Compile by make package/qt5-openwrt-package/compile V=s  
 6. Go to sleep and check it in the morning  
 
 ## Tested Platform
