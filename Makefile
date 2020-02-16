@@ -9,9 +9,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5
-PKG_VERSION:=5.14
-PKG_RELEASE:=1
-PKG_MD5SUM:=781c3179410aff7ef84607214e1e91b4
+PKG_VERSION:=5.11
+PKG_RELEASE:=3
+PKG_MD5SUM:=02b353bfe7a40a8dc4274e1d17226d2b
 
 PKG_SOURCE:=qt-everywhere-src-$(PKG_VERSION).$(PKG_RELEASE).tar.xz
 PKG_SOURCE_URL:=http://download.qt-project.org/archive/qt/$(PKG_VERSION)/$(PKG_VERSION).$(PKG_RELEASE)/single
@@ -116,10 +116,6 @@ define Build/Configure
 			-xplatform linux-openwrt-g++ \
 			-opensource \
 			-confirm-license \
-			-release \
-			-verbose \
-			-no-accessibility \
-			-no-sse2 \
 			-no-iconv \
 			-no-pch \
 			-no-rpath \
@@ -132,26 +128,11 @@ define Build/Configure
 			-no-directfb \
 			-no-xcb \
 			-no-feature-getentropy \
-			-no-xkb \
-			-no-eglfs \
-			-no-icu \
-			-no-gif \
-			-no-gui \
-			-no-widgets \
-			-no-libpng \
-			-no-libjpeg \
-			-no-separate-debug-info \
-			-no-sql-sqlite2 \
-			-no-sql-sqlite \
-			-no-sql-psql \
-			-no-sql-odbc \
-			-no-pkg-config \
-			-system-zlib \
-			-no-freetype \
+			-qt-zlib \
+			-qt-freetype \
 			-make libs \
 			-nomake examples \
 			-nomake tests \
-			-nomake tools \
 			-skip qtdeclarative \
 			-skip qtmultimedia \
 			-skip activeqt \
@@ -193,12 +174,12 @@ define Package/qt5-core/install
 	$(CP) $(TOOLCHAIN_DIR)/lib/libatomic.so* $(1)/usr/lib/
 endef
 
-# define Package/qt5-concurrent/install
-# 	$(INSTALL_DIR) $(1)/usr/lib/
-# 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.so* $(1)/usr/lib/
-# 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.prl $(1)/usr/lib/
-# 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.la $(1)/usr/lib/
-# endef
+define Package/qt5-concurrent/install
+	$(INSTALL_DIR) $(1)/usr/lib/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.so* $(1)/usr/lib/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.prl $(1)/usr/lib/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.la $(1)/usr/lib/
+endef
 
 define Package/qt5-network/install
 	$(INSTALL_DIR) $(1)/usr/lib/
@@ -259,7 +240,7 @@ endef
 # endef
 
 $(eval $(call BuildPackage,qt5-core))
-# $(eval $(call BuildPackage,qt5-concurrent))
+#$(eval $(call BuildPackage,qt5-concurrent))
 $(eval $(call BuildPackage,qt5-network))
 # $(eval $(call BuildPackage,qt5-widgets))
 # $(eval $(call BuildPackage,qt5-sql))
