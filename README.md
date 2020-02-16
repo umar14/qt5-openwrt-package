@@ -1,6 +1,6 @@
 # Qt5 Library Package for OpenWRT
 
-Cross compile the Qt5 Core for OpenWRT.
+Cross compile the Qt5 Core library for OpenWRT MIPS platform.
 
 ## Configure Qt Modules and Features
 
@@ -22,7 +22,18 @@ sudo apt install libncurses-dev zlib1g-dev gawk subversion
 ```bash
 make package/qt5-openwrt-package/compile V=s  
 ```
-7. Go to sleep and check it in the morning  
+7. It will take a long time to build  
+8. You can find compiled ipk files in SDK/bin/  
+
+## Install the Compiled Library to Target Device
+
+1. Copy compiled ipk files to the target device by scp  
+2. Install ipk files by  
+```bash
+opkg install qt5-core_5.11-3_ramips_24kec.ipk
+opkg install qt5-network_5.11-3_ramips_24kec.ipk
+
+```
 
 ## Tested Platform
 
