@@ -4,7 +4,18 @@ Cross compile the Qt5 Core library for OpenWRT MIPS platform.
 
 ## Configure Qt Modules and Features
 
-TBA
+You can see all the modules available by browsering the folders of Qt5 source code.  
+For example, qtchart is a module under qt-everywhere-src-5.11.3. You can modify the Makefile to disable/enable this module.  
+
+You can see all the features available by following command.
+
+```bash
+./configure --list-features
+```
+
+You can modify the Makefile to disable/enable this module.  
+
+For more information, please refer to https://doc.qt.io/qt-5/configure-options.html.
 
 ## How to Compile
 
