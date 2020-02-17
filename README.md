@@ -17,7 +17,7 @@ You can modify the Makefile to disable/enable this module.
 
 For more information, please refer to https://doc.qt.io/qt-5/configure-options.html.
 
-## How to Compile
+## How to Compile Shared Library
 
 OpenWRT compiler is required.
 
@@ -27,29 +27,28 @@ OpenWRT compiler is required.
 4. Put this repo into SDK/package  
 5. Install dependencies by  
 
-```bash
-sudo apt install libncurses-dev zlib1g-dev gawk subversion
-```
+    ```bash
+    sudo apt install libncurses-dev zlib1g-dev gawk subversion
+    ```
 
 6. Compile by  
 
-```bash
-make package/qt5-openwrt-package/compile V=s  
-```
+    ```bash
+    make package/qt5-openwrt-package/compile V=s  
+    ```
 
 7. It will take a long time to build  
 8. You can find compiled ipk files in SDK/bin/  
 
-## Install the Compiled Library to Target Device
+## Install the Compiled Shared Library to Target Device
 
 1. Copy compiled ipk files to the target device by scp  
 2. Install ipk files by  
 
-```bash
-opkg install qt5-core_5.11-3_ramips_24kec.ipk
-opkg install qt5-network_5.11-3_ramips_24kec.ipk
-
-```
+    ```bash
+    opkg install qt5-core_5.11-3_ramips_24kec.ipk
+    opkg install qt5-network_5.11-3_ramips_24kec.ipk
+    ```
 
 ## Tested Platform
 
