@@ -209,12 +209,12 @@ define Package/qt5-core/install
 	$(CP) $(TOOLCHAIN_DIR)/lib/libatomic.so* $(1)/usr/lib/
 endef
 
-define Package/qt5-concurrent/install
-	$(INSTALL_DIR) $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.so* $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.prl $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.la $(1)/usr/lib/
-endef
+# define Package/qt5-concurrent/install
+# 	$(INSTALL_DIR) $(1)/usr/lib/
+# 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.so* $(1)/usr/lib/
+# 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.prl $(1)/usr/lib/
+# 	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Concurrent.la $(1)/usr/lib/
+# endef
 
 define Package/qt5-network/install
 	$(INSTALL_DIR) $(1)/usr/lib/
