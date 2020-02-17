@@ -133,13 +133,46 @@ define Build/Configure
 			-make libs \
 			-nomake examples \
 			-nomake tests \
-			-skip qtdeclarative \
-			-skip qtmultimedia \
-			-skip activeqt \
-			-skip qtdoc \
+			-skip qt3d \
+			-skip qtactiveqt \
+			-skip qtandroidextras \
+			-skip qtcanvas3d \
+			-skip qtcharts \
 			-skip qtconnectivity \
-			-skip wayland \
+			-skip qtdatavis3d \
+			-skip qtdeclarative \
+			-skip qtdoc \
+			-skip qtgamepad \
+			-skip qtgraphicaleffects \
+			-skip qtimageformats \
+			-skip qtlocation \
+			-skip qtmacextras \
+			-skip qtmultimedia \
+			-skip networkauth \
+			-skip purchasing \
+			-skip qtquickcontrols \
+			-skip qtquickcontrols2 \
+			-skip qtremoteobjects \
 			-skip qtscript \
+			-skip qtscxml \
+			-skip qtsensors \
+			-skip qtserialbus \
+			-skip qtserialport \
+			-skip qtspeech \
+			-skip qtsvg \
+			-skip qttools \
+			-skip qttranslations \
+			-skip qtvirtualkeyboard \
+			-skip qtwayland \
+			-skip qtwebchannel \
+			-skip qtwebengine \
+			-skip qtwebglplugin \
+			-skip qtwebsockets \
+			-skip websockets \
+			-skip qtwebview \
+			-skip qtwinextras \
+			-skip qtx11extras \
+			-skip qtxmlpatterns \
 			-v \
 	)
 endef
