@@ -117,6 +117,7 @@ define Build/Configure
 			-opensource \
 			-confirm-license \
 			-optimize-size \
+			-no-openssl \
 			-no-iconv \
 			-no-pch \
 			-no-rpath \
@@ -129,7 +130,7 @@ define Build/Configure
 			-no-directfb \
 			-no-xcb \
 			-no-feature-getentropy \
-			-qt-zlib \
+			-system-zlib \
 			-qt-freetype \
 			-make libs \
 			-nomake examples \
