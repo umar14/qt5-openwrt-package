@@ -116,10 +116,11 @@ define Build/Configure
 			-xplatform linux-openwrt-g++ \
 			-opensource \
 			-confirm-license \
+			-optimize-size \
 			-no-iconv \
 			-no-pch \
 			-no-rpath \
-			-no-strip \
+			-strip \
 			-no-cups \
 			-no-dbus \
 			-no-eglfs \
