@@ -94,6 +94,16 @@ define Build/Configure
 	$(CP) ./files/qplatformdefs.h $(PKG_BUILD_DIR)/qtbase/mkspecs/linux-openwrt-g++/qplatformdefs.h
 	$(CP) ./files/qmake.conf $(PKG_BUILD_DIR)/qtbase/mkspecs/linux-openwrt-g++/qmake.conf
 	$(SED) 's@$$$$(TARGET_CROSS)@$(TARGET_CROSS)@g' $(PKG_BUILD_DIR)/qtbase/mkspecs/linux-openwrt-g++/qmake.conf
+	$(info PKG_BUILD_DIR is $(PKG_BUILD_DIR))
+	$(info TOOLCHAIN_DIR is $(TOOLCHAIN_DIR))
+	$(info TARGET_CROSS is $(TARGET_CROSS))
+	$(info TARGET_CFLAGS is $(TARGET_CFLAGS))
+	$(info EXTRA_CFLAGS is $(EXTRA_CFLAGS))
+	$(info TARGET_LDFLAGS is $(TARGET_LDFLAGS))
+	$(info EXTRA_LDFLAGS is $(EXTRA_LDFLAGS))
+	$(info TARGET_INCDIRS is $(TARGET_INCDIRS))
+	$(info TARGET_LIBDIRS is $(TARGET_LIBDIRS))
+	$(info STAGING_DIR is $(STAGING_DIR))
 	( cd $(PKG_BUILD_DIR) ; \
 		TARGET_CC="$(TARGET_CROSS)gcc" \
 		TARGET_CXX="$(TARGET_CROSS)g++" \
@@ -118,6 +128,7 @@ define Build/Configure
 			-confirm-license \
 			-optimize-size \
 			-no-openssl \
+			-no-gui \
 			-no-iconv \
 			-no-pch \
 			-no-rpath \
@@ -129,10 +140,39 @@ define Build/Configure
 			-no-opengl \
 			-no-directfb \
 			-no-xcb \
-			-no-feature-getentropy \
+			-no-feature-sql \
+			-no-feature-xml \
+			-no-feature-testlib \
+			-no-feature-ftp \
+			-no-feature-http \
+			-no-feature-networkdiskcache \
+			-no-feature-networkproxy \
+			-no-feature-action \
+			-no-feature-clipboard \
+			-no-feature-concurrent \
+			-no-feature-cssparser \
+			-no-feature-cursor \
+			-no-feature-cssparser \
+			-no-feature-draganddrop \
+			-no-feature-effects \
+			-no-feature-draganddrop \
+			-no-feature-future \
+			-no-feature-highdpiscaling \
+			-no-feature-im \
+			-no-feature-properties \
+			-no-feature-regularexpression \
+			-no-feature-sessionmanager \
+			-no-feature-sharedmemory \
+			-no-feature-shortcut \
+			-no-feature-tabletevent \
+			-no-feature-texthtmlparser \
+			-no-feature-textodfwriter \
+			-no-feature-wheelevent \
+			-no-feature-xmlstream \
+			-no-feature-xmlstreamreader \
+			-no-feature-xmlstreamwriter \
 			-system-zlib \
 			-qt-freetype \
-			-make libs \
 			-nomake examples \
 			-nomake tests \
 			-skip qt3d \

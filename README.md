@@ -13,7 +13,7 @@ You can see all the features available by following command.
 ./configure --list-features
 ```
 
-You can modify the Makefile to disable/enable this module.  
+You can modify the Makefile to disable/enable this feature.  
 
 For more information, please refer to https://doc.qt.io/qt-5/configure-options.html.
 
