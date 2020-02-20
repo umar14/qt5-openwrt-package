@@ -17,6 +17,12 @@ You can modify the Makefile to disable/enable this feature.
 
 For more information, please refer to https://doc.qt.io/qt-5/configure-options.html.
 
+## Special Cases
+
+### Not enough space in /usr/lib/
+* If the target device has not enough space to install the library, you could choose to install the library to /tmp/. However, /tmp/ resides in ram and will be lost after reboot.  
+* If the target device has enough space to install the library, you need to modify the Makefile.  
+
 ## How to Compile Shared Library
 
 OpenWRT compiler is required.

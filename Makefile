@@ -242,11 +242,24 @@ define Build/InstallDev
 endef
 
 define Package/qt5-core/install
-	$(INSTALL_DIR) $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.so* $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.prl $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.la $(1)/usr/lib/
-	$(CP) $(TOOLCHAIN_DIR)/lib/libatomic.so* $(1)/usr/lib/
+	# special: not enough space in /usr/lib/, install the files to /tmp/
+	$(INSTALL_DIR) $(1)/tmp/libqt5/core/ $(2)/usr/lib/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.so* $(1)/tmp/libqt5/core/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.prl $(1)/tmp/libqt5/core/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.la $(1)/tmp/libqt5/core/
+	$(CP) $(TOOLCHAIN_DIR)/lib/libatomic.so* $(1)/tmp/libqt5/core/
+	# default: package should be installed in /usr/lib/
+	# $(INSTALL_DIR) $(1)/usr/lib/
+	# $(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.so* $(1)/usr/lib/
+	# $(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.prl $(1)/usr/lib/
+	# $(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Core.la $(1)/usr/lib/
+	# $(CP) $(TOOLCHAIN_DIR)/lib/libatomic.so* $(1)/usr/lib/
+endef
+
+# special: not enough space in /usr/lib/, then create a symlink
+define Package/qt5-core/postinst
+#!/bin/sh
+ln -sf /tmp/libqt5/core/* /usr/lib/
 endef
 
 # define Package/qt5-concurrent/install
@@ -257,10 +270,22 @@ endef
 # endef
 
 define Package/qt5-network/install
-	$(INSTALL_DIR) $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.so* $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.prl $(1)/usr/lib/
-	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.la $(1)/usr/lib/
+	# special: not enough space in /usr/lib/, install the files to /tmp/
+	$(INSTALL_DIR) $(1)/tmp/libqt5/network/ $(2)/usr/lib/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.so* $(1)/tmp/libqt5/network/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.prl $(1)/tmp/libqt5/network/
+	$(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.la $(1)/tmp/libqt5/network/
+	# default: package should be installed in /usr/lib/
+	# $(INSTALL_DIR) $(1)/usr/lib/
+	# $(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.so* $(1)/usr/lib/
+	# $(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.prl $(1)/usr/lib/
+	# $(CP) $(PKG_BUILD_DIR)/qtbase/lib/libQt5Network.la $(1)/usr/lib/
+endef
+
+# special: not enough space in /usr/lib/, then create a symlink
+define Package/qt5-network/postinst
+#!/bin/sh
+ln -sf /tmp/libqt5/network/* /usr/lib/
 endef
 
 # define Package/qt5-widgets/install
