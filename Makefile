@@ -171,7 +171,7 @@ define Build/Configure
 			-no-feature-xmlstream \
 			-no-feature-xmlstreamreader \
 			-no-feature-xmlstreamwriter \
-			-system-zlib \
+			-qt-zlib \
 			-qt-freetype \
 			-nomake examples \
 			-nomake tests \
