@@ -56,6 +56,68 @@ OpenWRT compiler is required.
     opkg install qt5-network_5.11-3_ramips_24kec.ipk
     ```
 
+## Hello World Application
+
+1. At the root of SDK, execute following command
+
+    ```bash
+    make -C scripts/config/ clean  
+    make
+    ```
+2. then, go to the qt source code and make install by
+
+    ```bash
+    cd  build_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/qt-everywhere-src-5.11.3  
+    make install
+    ```
+
+3. On your Ubuntu, please install qtcreator and other tools by
+
+    ```bash
+    sudo apt install qtcreator qt5-default build-essential  
+    ```
+
+4. Add a new QT Device: QT Creator --> Tools --> Options --> Devices --> Add --> Generic Linux Device
+    * Name: OpenWrt Device
+    * Authentcation Type: Password
+    * Host address: Your device ip address
+    * SSH port: 22
+    * Username: your device username
+    * Password: your device password
+
+5. Set a new compiler: QT Creator --> Tools --> Options --> Build & Run --> Compilers --> Add --> GCC --> for both C/C++
+    * Name: OpenWrt GCC and OpenWrt G++
+    * ABI: mips-linux-generic-elf-32bit
+    * Compiler path (GCC): staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/mipsel-openwrt-linux-uclibc-gcc
+    * Compiler path (G++): staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/mipsel-openwrt-linux-uclibc-g++
+
+6. Set a new debugger: QT Creator --> Tools --> Options --> Build & Run --> Debuggers --> Add  
+    * Name: OpenWrt Debugger
+    * Path: staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/mipsel-openwrt-linux-uclibc-gdb
+
+7. Set a Qt5 version: QT Creator --> Tools --> Options --> Build & Run --> Qt Versions --> Add
+    * qmake location: staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/qmake
+
+8. Add a new Kit: QT Creator --> Tools --> Options --> Build & Run --> Kits --> Add
+    * Name: OpenWrt Kit
+    * Device Type: Generic Linux Device
+    * Device: OpenWrt Device (default for Generic Linux)
+    * Compiler: C, OpenWrt GCC; C++, OpenWrt G++
+    * Debugger: OpenWrt Debugger
+    * Qt version: Qt 5.11.3
+
+9. Create a New Project --> Qt Console Application --> Choose... --> Name: helloWorld --> qmake --> OpenWrt Kit --> Finsh
+
+    ```cpp
+    #include <QTextStream>
+    int main()
+    {
+        QTextStream(stdout) << "Hello World!" << endl;
+        return 0;
+    }
+    ```
+10. Build. Transfer to your target device and run.
+
 ## Tested Platform
 
 TBA
