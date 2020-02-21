@@ -34,13 +34,13 @@ OpenWRT compiler is required.
 5. Install dependencies by  
 
     ```bash
-    sudo apt install libncurses-dev zlib1g-dev gawk subversion python
+    sudo apt install libncurses-dev zlib1g-dev gawk subversion python build-essential
     ```
 
 6. Compile by  
 
     ```bash
-    make package/qt5-openwrt-package/compile V=s  
+    make package/qt5-openwrt-package/compile V=s
     ```
 
 7. It will take a long time to build  
