@@ -25,6 +25,8 @@ For more information, please refer to https://doc.qt.io/qt-5/configure-options.h
 
 ## How to Compile Shared Library
 
+[![Cross Compile Qt5 for OpenWrt](https://img.youtube.com/vi/4yuvjuDuCLY/0.jpg)](https://www.youtube.com/watch?v=4yuvjuDuCLY)
+
 OpenWRT compiler is required.
 
 1. Download SDK, for example https://archive.openwrt.org/barrier_breaker/14.07/ramips/mt7620n/OpenWrt-SDK-ramips-for-linux-x86_64-gcc-4.8-linaro_uClibc-0.9.33.2.tar.bz2  
