@@ -14,7 +14,10 @@ PKG_RELEASE:=3
 PKG_MD5SUM:=02b353bfe7a40a8dc4274e1d17226d2b
 
 PKG_SOURCE:=qt-everywhere-src-$(PKG_VERSION).$(PKG_RELEASE).tar.xz
+# Official QT source
 PKG_SOURCE_URL:=http://download.qt-project.org/archive/qt/$(PKG_VERSION)/$(PKG_VERSION).$(PKG_RELEASE)/single
+# QT removed the 5.11 source code and here below is my personal backup
+# PKG_SOURCE_URL:=https://dengpeng.de/wp-content/uploads/2020/03
 PKG_BUILD_DIR=$(BUILD_DIR)/qt-everywhere-src-$(PKG_VERSION).$(PKG_RELEASE)
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
