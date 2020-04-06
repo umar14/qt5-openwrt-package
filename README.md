@@ -36,7 +36,7 @@ OpenWRT compiler is required.
 5. Install dependencies by  
 
     ```bash
-    sudo apt install libncurses-dev zlib1g-dev gawk subversion python build-essential
+    sudo apt install libncurses-dev zlib1g-dev gawk subversion python build-essential ccache
     ```
 
 6. Compile by  
