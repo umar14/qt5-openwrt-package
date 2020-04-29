@@ -163,7 +163,6 @@ define Build/Configure
 			-no-feature-highdpiscaling \
 			-no-feature-im \
 			-no-feature-properties \
-			-no-feature-regularexpression \
 			-no-feature-sessionmanager \
 			-no-feature-sharedmemory \
 			-no-feature-shortcut \
@@ -202,7 +201,6 @@ define Build/Configure
 			-skip qtscxml \
 			-skip qtsensors \
 			-skip qtserialbus \
-			-skip qtserialport \
 			-skip qtspeech \
 			-skip qtsvg \
 			-skip qttools \
