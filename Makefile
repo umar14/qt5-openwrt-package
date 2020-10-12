@@ -147,7 +147,6 @@ define Build/Configure
 			-no-feature-xml \
 			-no-feature-testlib \
 			-no-feature-ftp \
-			-no-feature-http \
 			-no-feature-networkdiskcache \
 			-no-feature-networkproxy \
 			-no-feature-action \
@@ -162,7 +161,6 @@ define Build/Configure
 			-no-feature-future \
 			-no-feature-highdpiscaling \
 			-no-feature-im \
-			-no-feature-properties \
 			-no-feature-sessionmanager \
 			-no-feature-sharedmemory \
 			-no-feature-shortcut \
