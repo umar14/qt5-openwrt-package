@@ -130,7 +130,6 @@ define Build/Configure
 			-opensource \
 			-confirm-license \
 			-optimize-size \
-			-no-openssl \
 			-no-gui \
 			-no-iconv \
 			-no-pch \
